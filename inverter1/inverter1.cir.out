@@ -1,0 +1,18 @@
+* c:\esimworkspace\inverter1\inverter1.cir
+
+.include NMOS-180nm.lib
+.include PMOS-180nm.lib
+m2 /out /in net-_m2-pad3_ net-_m2-pad3_ CMOSP W=100u L=100u M=1
+m1 /out /in gnd gnd CMOSN W=100u L=100u M=1
+v1  /in gnd pwl(0 0 1.8 0 3 1.8 5 1.8)
+v2 net-_m2-pad3_ gnd  dc 1.8
+* u1  /in /out port
+.tran 0.1e-00 10e-00 0e-00
+
+* Control Statements 
+.control
+run
+print allv > plot_data_v.txt
+print alli > plot_data_i.txt
+.endc
+.end
