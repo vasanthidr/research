@@ -1,0 +1,15 @@
+* C:\esimworkspace\inverter1\inverter1.cir
+
+* EESchema Netlist Version 1.1 (Spice format) creation date: 10/18/20 16:04:23
+
+* To exclude a component from the Spice Netlist add [Spice_Netlist_Enabled] user FIELD set to: N
+* To reorder the component spice node sequence add [Spice_Node_Sequence] user FIELD and define sequence: 2,1,0
+
+* Sheet Name: /
+M2  /out /in Net-_M2-Pad3_ Net-_M2-Pad3_ eSim_MOS_P		
+M1  /out /in GND GND eSim_MOS_N		
+v1  /in GND pwl		
+v2  Net-_M2-Pad3_ GND DC		
+U1  /in /out PORT		
+
+.end

@@ -1,0 +1,29 @@
+
+* c:\esimworkspace\inverter1\inverter1.cir
+
+*.include NMOS-180nm.lib
+*.include PMOS-180nm.lib
+
+.include "sky130_fd_pr__nfet_01v8__tt.pm3.spice"
+
+.include "sky130_fd_pr__pfet_01v8__tt.pm3.spice"
+
+*.include "all.spice"
+
+*.include "nfet_01v8_nfet_vth.spice
+*.include "pfet_01v8_pfet_vth.spice
+
+X2 out in net-X2-pad3_ net-X2-pad3_ CMOSP W=100u L=100u X=1
+X1 out in gnd gnd CMOSN W=100u L=100u M=1
+v1  in gnd pwl(0 0 1.8 0 3 1.8 5 1.8)
+v2 net-_m2-pad3_ gnd  dc 1.8
+* u1  in out port
+.tran 0.1e-00 10e-00 0e-00
+
+* Control Statements 
+.control
+run
+print allv > plot_data_v.txt
+print alli > plot_data_i.txt
+.endc
+.end
